@@ -86,7 +86,7 @@ protocol instance rather than a factory.
 
     class Greeter(Protocol):
         def sendMessage(self, msg):
-            self.transport.write("MESSAGE %s\n" % msg)
+            self.transport.write(("MESSAGE %s\n" % msg).encode('utf-8'))
 
     def gotProtocol(p):
         p.sendMessage("Hello")
