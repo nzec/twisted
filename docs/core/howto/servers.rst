@@ -229,7 +229,7 @@ Here is an example of a factory which allows its Protocols to write to a special
     class LoggingProtocol(LineReceiver):
 
         def lineReceived(self, line):
-            self.factory.fp.write(line + '\n')
+            self.factory.fp.write(line + b'\n')
 
 
     class LogfileFactory(Factory):
@@ -240,7 +240,7 @@ Here is an example of a factory which allows its Protocols to write to a special
             self.file = fileName
 
         def startFactory(self):
-            self.fp = open(self.file, 'a')
+            self.fp = open(self.file, 'ab')
 
         def stopFactory(self):
             self.fp.close()
